@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://b7ciw11wmoljy"]
+
+[ext_resource type="Script" path="res://ui.gd" id="1_lixtr"]
+[ext_resource type="PackedScene" uid="uid://c17nw2ti2rf0o" path="res://start_screen.tscn" id="2_i62qe"]
+[ext_resource type="PackedScene" uid="uid://b7c1lcteavuex" path="res://pause_screen.tscn" id="3_1m3rc"]
+[ext_resource type="AudioStream" uid="uid://dd0no2r0ljekx" path="res://button/rollover2.wav" id="3_3rb3q"]
+[ext_resource type="AudioStream" uid="uid://fsjbp6iqin3a" path="res://button/switch24.wav" id="4_fer24"]
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lixtr")
+
+[node name="StartScreen" parent="." instance=ExtResource("2_i62qe")]
+
+[node name="PauseScreen" parent="." instance=ExtResource("3_1m3rc")]
+layout_mode = 1
+
+[node name="button_hover_fx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_3rb3q")
+
+[node name="button_press_fx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_fer24")

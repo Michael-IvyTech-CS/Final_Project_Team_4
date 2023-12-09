@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://c17nw2ti2rf0o"]
+
+[ext_resource type="Theme" uid="uid://dfcxy7bgfkdlq" path="res://UI_theme.tres" id="1_3e55e"]
+[ext_resource type="Script" path="res://start_screen.gd" id="2_v3w72"]
+
+[node name="StartScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+theme = ExtResource("1_3e55e")
+script = ExtResource("2_v3w72")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 384.0
+offset_bottom = 256.0
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_right = 384.0
+offset_bottom = 256.0
+
+[node name="StartMenuOptions" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="play" type="Button" parent="CenterContainer/StartMenuOptions"]
+layout_mode = 2
+text = "Play"
+
+[node name="credits" type="Button" parent="CenterContainer/StartMenuOptions"]
+layout_mode = 2
+text = "Credits"
+
+[node name="quit" type="Button" parent="CenterContainer/StartMenuOptions"]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="mouse_entered" from="CenterContainer/StartMenuOptions/play" to="." method="_on_play_mouse_entered"]
+[connection signal="pressed" from="CenterContainer/StartMenuOptions/play" to="." method="_on_play_pressed"]
+[connection signal="mouse_entered" from="CenterContainer/StartMenuOptions/credits" to="." method="_on_credits_mouse_entered"]
+[connection signal="pressed" from="CenterContainer/StartMenuOptions/credits" to="." method="_on_credits_pressed"]
+[connection signal="mouse_entered" from="CenterContainer/StartMenuOptions/quit" to="." method="_on_quit_mouse_entered"]
+[connection signal="pressed" from="CenterContainer/StartMenuOptions/quit" to="." method="_on_quit_pressed"]
