@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://c6in1s7hw8ele"]
 
 [ext_resource type="Script" path="res://enemy.gd" id="1_j4mrw"]
-[ext_resource type="Texture2D" uid="uid://dj3lwq4tglncn" path="res://MODIFIED-charsets_12_m-f_characters_3rdsheet_by_antifarea.png" id="2_gpvx7"]
+[ext_resource type="Texture2D" uid="uid://dj3lwq4tglncn" path="res://assets/MODIFIED-charsets_12_m-f_characters_3rdsheet_by_antifarea.png" id="2_gpvx7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6fsdb"]
 size = Vector2(12, 16)
@@ -166,6 +166,8 @@ _data = {
 radius = 131.004
 
 [node name="Enemy" type="CharacterBody2D"]
+collision_layer = 2
+motion_mode = 1
 script = ExtResource("1_j4mrw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -185,7 +187,6 @@ libraries = {
 
 [node name="DetectionArea" type="Area2D" parent="."]
 collision_layer = 0
-collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
 shape = SubResource("CircleShape2D_gasmx")
