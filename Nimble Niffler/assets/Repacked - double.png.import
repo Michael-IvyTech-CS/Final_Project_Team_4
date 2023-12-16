@@ -1,0 +1,22 @@
+[remap]
+
+importer="font_data_image"
+type="FontFile"
+uid="uid://bowrkc4c5tggl"
+path="res://.godot/imported/Repacked - double.png-940c0c49dafae31962cb2780d72dce19.fontdata"
+
+[deps]
+
+source_file="res://assets/Repacked - double.png"
+dest_files=["res://.godot/imported/Repacked - double.png-940c0c49dafae31962cb2780d72dce19.fontdata"]
+
+[params]
+
+character_ranges=PackedStringArray("\' \'", "\'!\'", "\'*\'", "\'+\'", "\',\'", "\'-\'", "\'.\'", "\'/\'", "\'0\'-\'9\'", "\':\'", "\';\'", "\'<\'", "\'=\'", "\'#\'", "\'>\'", "\'?\'", "\'@\'", "\'A\'-\'Z\'")
+columns=9
+rows=8
+image_margin=Rect2i(0, 0, 0, 0)
+character_margin=Rect2i(0, 0, 18, 16)
+fallbacks=[null]
+compress=true
+scaling_mode=2

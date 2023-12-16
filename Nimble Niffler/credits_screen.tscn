@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://f5px7f8umcef"]
+
+[ext_resource type="Theme" uid="uid://dfcxy7bgfkdlq" path="res://assets/UI_theme.tres" id="1_2iye7"]
+[ext_resource type="Script" path="res://credits_screen.gd" id="2_jrvsj"]
+[ext_resource type="Texture2D" uid="uid://ds7a42cb5330v" path="res://assets/title_background.png" id="3_nc0fx"]
+
+[node name="CreditsScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_2iye7")
+script = ExtResource("2_jrvsj")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+offset_right = 384.0
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_nc0fx")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="back" type="Button" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Back"
+
+[connection signal="mouse_entered" from="back" to="." method="_on_back_mouse_entered"]
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]

@@ -1,0 +1,55 @@
+[gd_scene load_steps=4 format=3 uid="uid://c17nw2ti2rf0o"]
+
+[ext_resource type="Theme" uid="uid://dfcxy7bgfkdlq" path="res://assets/UI_theme.tres" id="1_fy1hi"]
+[ext_resource type="Script" path="res://start_screen.gd" id="2_v3w72"]
+[ext_resource type="Texture2D" uid="uid://ds7a42cb5330v" path="res://assets/title_background.png" id="3_xdx4q"]
+
+[node name="StartScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_fy1hi")
+script = ExtResource("2_v3w72")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -66.0
+offset_top = -49.0
+offset_right = 66.0
+offset_bottom = 49.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer"]
+layout_mode = 2
+texture = ExtResource("3_xdx4q")
+
+[node name="StartMenuOptions" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="play" type="Button" parent="CenterContainer/StartMenuOptions"]
+layout_mode = 2
+text = "Play"
+
+[node name="credits" type="Button" parent="CenterContainer/StartMenuOptions"]
+layout_mode = 2
+text = "Credits"
+
+[node name="quit" type="Button" parent="CenterContainer/StartMenuOptions"]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="mouse_entered" from="CenterContainer/StartMenuOptions/play" to="." method="_on_play_mouse_entered"]
+[connection signal="pressed" from="CenterContainer/StartMenuOptions/play" to="." method="_on_play_pressed"]
+[connection signal="mouse_entered" from="CenterContainer/StartMenuOptions/credits" to="." method="_on_credits_mouse_entered"]
+[connection signal="pressed" from="CenterContainer/StartMenuOptions/credits" to="." method="_on_credits_pressed"]
+[connection signal="mouse_entered" from="CenterContainer/StartMenuOptions/quit" to="." method="_on_quit_mouse_entered"]
+[connection signal="pressed" from="CenterContainer/StartMenuOptions/quit" to="." method="_on_quit_pressed"]

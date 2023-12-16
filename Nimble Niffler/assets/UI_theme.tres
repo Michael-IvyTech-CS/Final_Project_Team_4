@@ -1,0 +1,34 @@
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://dfcxy7bgfkdlq"]
+
+[ext_resource type="FontFile" uid="uid://m7cgagl8p45" path="res://assets/using_fonts_monospace_bitmap_font_example.webp" id="1_cxhhj"]
+[ext_resource type="Texture2D" uid="uid://bh3x3g773rfp1" path="res://button/button_hover.png" id="2_3i6rb"]
+[ext_resource type="Texture2D" uid="uid://o4n75p0typx2" path="res://button/button_normal.png" id="3_le5du"]
+[ext_resource type="Texture2D" uid="uid://kprobotaolhj" path="res://button/button_pressed.png" id="4_qgymf"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gvkvk"]
+texture = ExtResource("2_3i6rb")
+texture_margin_left = 10.0
+texture_margin_top = 7.0
+texture_margin_right = 10.0
+texture_margin_bottom = 7.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rv1co"]
+texture = ExtResource("3_le5du")
+texture_margin_left = 10.0
+texture_margin_top = 7.0
+texture_margin_right = 10.0
+texture_margin_bottom = 7.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_71wl6"]
+texture = ExtResource("4_qgymf")
+texture_margin_left = 10.0
+texture_margin_top = 7.0
+texture_margin_right = 10.0
+texture_margin_bottom = 7.0
+
+[resource]
+Button/fonts/font = ExtResource("1_cxhhj")
+Button/styles/hover = SubResource("StyleBoxTexture_gvkvk")
+Button/styles/normal = SubResource("StyleBoxTexture_rv1co")
+Button/styles/pressed = SubResource("StyleBoxTexture_71wl6")
+Label/fonts/font = ExtResource("1_cxhhj")

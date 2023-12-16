@@ -1,0 +1,18 @@
+[gd_scene load_steps=6 format=3 uid="uid://cer5emlh07hhj"]
+
+[ext_resource type="PackedScene" uid="uid://c6in1s7hw8ele" path="res://enemy.tscn" id="1_sotr0"]
+[ext_resource type="Script" path="res://main.gd" id="1_yflgh"]
+[ext_resource type="PackedScene" uid="uid://b7ciw11wmoljy" path="res://ui.tscn" id="2_spvb5"]
+[ext_resource type="PackedScene" uid="uid://bhloj40i5gwg0" path="res://player.tscn" id="3_qxujs"]
+[ext_resource type="PackedScene" uid="uid://tpmv83nvodgh" path="res://world.tscn" id="4_3strb"]
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_yflgh")
+World = ExtResource("4_3strb")
+Enemy = ExtResource("1_sotr0")
+Player = ExtResource("3_qxujs")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" parent="CanvasLayer" instance=ExtResource("2_spvb5")]
+process_mode = 3

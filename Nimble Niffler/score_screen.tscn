@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddbt0g3vrtc4d"]
+
+[ext_resource type="Script" path="res://ScoreScreen.gd" id="1_iu1hh"]
+[ext_resource type="Material" uid="uid://bp5bw6sa3t6mx" path="res://assets/blur_shader.tres" id="2_63hpa"]
+
+[node name="ScoreScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_iu1hh")
+
+[node name="blur" type="ColorRect" parent="."]
+material = ExtResource("2_63hpa")
+offset_right = 384.0
+offset_bottom = 256.0
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+offset_right = 384.0
+offset_bottom = 256.0
+
+[node name="ScoreMenu" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="quit to menu" type="Button" parent="CenterContainer/ScoreMenu"]
+layout_mode = 2
+text = "Quit to Menu"
+
+[connection signal="mouse_entered" from="CenterContainer/ScoreMenu/quit to menu" to="." method="_on_quit_to_menu_mouse_entered"]
+[connection signal="pressed" from="CenterContainer/ScoreMenu/quit to menu" to="." method="_on_quit_to_menu_pressed"]
