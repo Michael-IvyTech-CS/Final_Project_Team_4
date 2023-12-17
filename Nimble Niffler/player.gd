@@ -12,6 +12,9 @@ var attack_range = false
 var current_attack = false
 var attack_in_progress = false
 
+signal player_death
+signal enemy_death
+
 
 func _ready():
 	add_to_group("gameplay")
@@ -27,8 +30,8 @@ func _physics_process(delta):
 	if health <= 0:
 		player_alive = false #add end screen / respawn / menu
 		health = 0
-		print("Player has died")
-		self.queue_free
+		player_death.emit()
+		self.queue_free()
 	
 	
 func player_movement():
@@ -118,17 +121,22 @@ func attack():
 		if direction == "up":
 			$AnimatedSprite2D.play("back_attack")
 			$attacking_cooldown.start()
-			
+		
+		# kill every enemy in range
+		for enemy in $hitbox.get_overlapping_bodies():
+			if enemy.is_in_group("enemies"):
+				enemy_death.emit()
+				enemy.queue_free()
 func player():
 	pass
 	
 func _on_hitbox_body_entered(body):
-	if body.has_method("enemy"):
+	if body.is_in_group("enemies"):
 		enemy_inattack_range = true
 		
 		
 func _on_hitbox_body_exited(body):
-	if body.has_method("enemy"):
+	if body.is_in_group("enemies"):
 		enemy_inattack_range = false
 		
 func _on_attacking_cooldown_timeout():
@@ -138,11 +146,18 @@ func _on_attacking_cooldown_timeout():
 	
 	
 func enemy_attack():
-	if enemy_inattack_range and enemy_attack_cooldown == true:
-		health = health - 20
+	if (enemy_attack_cooldown == true):
+		var hit = false
+		for i in get_slide_collision_count():
+			var collision = get_slide_collision(i)
+			if collision.get_collider().is_in_group("enemies"):
+				hit = true
+				break
+
+		if hit:
+			health = health - 20
 		enemy_attack_cooldown = false
 		$attacking_cooldown.start()
-		print("health")
 
 func _on_attackcooldown_timeout():
 	enemy_attack_cooldown = true

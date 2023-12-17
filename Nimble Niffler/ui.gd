@@ -5,6 +5,9 @@ extends Control
 @export var CreditsScreen: PackedScene
 @export var ScoreScreen: PackedScene
 
+@export var win_text: String = "You won!"
+@export var lose_text: String = "You lost."
+
 signal start
 signal kill
 
@@ -62,3 +65,15 @@ func _on_button_press(button):
 		"back":
 			$CreditsScreen.queue_free()
 			add_child(StartScreen.instantiate())
+
+
+func display_score(score, won):
+	get_tree().paused = true
+	var final_score_screen = ScoreScreen.instantiate()
+	add_child(final_score_screen)
+	if won:
+		final_score_screen.set_title(win_text)
+	else:
+		final_score_screen.set_title(lose_text)
+	final_score_screen.set_score(score)
+	pass

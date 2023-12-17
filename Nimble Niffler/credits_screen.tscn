@@ -22,13 +22,35 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_nc0fx")
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="CenterContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_top = 32
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CenterContainer"]
+layout_mode = 2
+focus_mode = 2
+theme = ExtResource("1_2iye7")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 12
+text = "Developed by:
+Michael Barthauer, Sean Richardson, Fernando Canchola, Mason Douglas Key
+Assets (free, taken from itch.io and opengameart.org):
+UI textures: Buch (http://opengameart.org/users/buch)
+Download: https://opengameart.org/content/ui-elements
+UI SFX: Kenney (www.kenney.nl)
+Download: https://opengameart.org/content/51-ui-sound-effects-buttons-switches-and-clicks
+Terrain: Ishtar Pixels
+Download: https://ishtarpixels.itch.io/top-down-asset-pack-10
+Enemies: Antifarea
+Download: https://opengameart.org/content/twelve-16x18-rpg-character-sprites-including-npcs-and-elementals
+Player: Cuddle Bug (@cuddleebug on twitter and instagram)
+Download: https://cuddle-bug.itch.io/apocalypse"
+selection_enabled = true
 
 [node name="back" type="Button" parent="."]
 layout_mode = 0

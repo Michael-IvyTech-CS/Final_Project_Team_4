@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b7ciw11wmoljy"]
+[gd_scene load_steps=9 format=3 uid="uid://b7ciw11wmoljy"]
 
 [ext_resource type="Script" path="res://ui.gd" id="1_lixtr"]
 [ext_resource type="Theme" uid="uid://dfcxy7bgfkdlq" path="res://assets/UI_theme.tres" id="1_m53x2"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://dd0no2r0ljekx" path="res://button/rollover2.wav" id="3_3rb3q"]
 [ext_resource type="AudioStream" uid="uid://fsjbp6iqin3a" path="res://button/switch24.wav" id="4_fer24"]
 [ext_resource type="PackedScene" uid="uid://f5px7f8umcef" path="res://credits_screen.tscn" id="5_t6my8"]
+[ext_resource type="PackedScene" uid="uid://ddbt0g3vrtc4d" path="res://score_screen.tscn" id="6_feb48"]
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -20,6 +21,7 @@ script = ExtResource("1_lixtr")
 StartScreen = ExtResource("2_i62qe")
 PauseScreen = ExtResource("3_1m3rc")
 CreditsScreen = ExtResource("5_t6my8")
+ScoreScreen = ExtResource("6_feb48")
 
 [node name="button_hover_fx" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_3rb3q")

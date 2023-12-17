@@ -12,6 +12,14 @@ func _ready():
 	add_to_group("screen")
 
 
+func set_title(text):
+	$CenterContainer/ScoreMenu/title.text = text
+
+
+func set_score(score):
+	$CenterContainer/ScoreMenu/score.text = "Score: " + str(score)
+
+
 func _on_quit_to_menu_mouse_entered():
 	hovered.emit($"CenterContainer/ScoreMenu/quit to menu".text.to_lower())
 

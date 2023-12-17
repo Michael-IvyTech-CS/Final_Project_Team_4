@@ -16,3 +16,7 @@ Player = ExtResource("3_qxujs")
 
 [node name="UI" parent="CanvasLayer" instance=ExtResource("2_spvb5")]
 process_mode = 3
+
+[node name="pivot" type="Node2D" parent="."]
+
+[node name="spawner" type="Node2D" parent="pivot"]
