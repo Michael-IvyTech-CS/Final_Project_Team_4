@@ -2,8 +2,10 @@
 
 ### Steps to open the project and run it:
 - Download the Godot game engine 4.2
-- Open the project folder "Nimble Niffler" in Godot
-- Click the play button in the top right
+- Download the project folder "Nimble Niffler" from this repository
+- Open Godot and scan for project folders in the directory you downloaded the project folder to
+- Select the project "Nimble Niffler"
+- Select "run" from the right sidebar (or "edit" then click the play button in the top right)
 
 ### When the game launches:
 - Click start to play the game
