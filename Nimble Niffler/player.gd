@@ -1,5 +1,10 @@
 extends CharacterBody2D
 
+var enemy_inattack_range = false
+var enemy_attack_cooldown = true
+var health = 100
+var player_alive = true
+
 
 const speed = 100
 var  current_direction = "down"
@@ -17,6 +22,13 @@ func _ready():
 func _physics_process(delta):
 	player_movement()
 	attack()
+	enemy_attack()
+	
+	if health <= 0:
+		player_alive = false #add end screen / respawn / menu
+		health = 0
+		print("Player has died")
+		self.queue_free
 	
 	
 func player_movement():
@@ -107,16 +119,17 @@ func attack():
 			$AnimatedSprite2D.play("back_attack")
 			$attacking_cooldown.start()
 			
-			
+func player():
+	pass
+	
 func _on_hitbox_body_entered(body):
 	if body.has_method("enemy"):
-		attack_range = true
+		enemy_inattack_range = true
 		
 		
 func _on_hitbox_body_exited(body):
 	if body.has_method("enemy"):
-		attack_range = false
-		
+		enemy_inattack_range = false
 		
 func _on_attacking_cooldown_timeout():
 	$attacking_cooldown.stop()
@@ -124,3 +137,12 @@ func _on_attacking_cooldown_timeout():
 	attack_in_progress = false
 	
 	
+func enemy_attack():
+	if enemy_inattack_range and enemy_attack_cooldown == true:
+		health = health - 20
+		enemy_attack_cooldown = false
+		$attacking_cooldown.start()
+		print("health")
+
+func _on_attackcooldown_timeout():
+	enemy_attack_cooldown = true

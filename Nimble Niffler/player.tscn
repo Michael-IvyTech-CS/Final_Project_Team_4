@@ -267,9 +267,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xrin3"]
-radius = 6.0
-height = 28.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_ueatn"]
+radius = 22.0907
 
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_yjfvt")
@@ -283,16 +282,19 @@ sprite_frames = SubResource("SpriteFrames_2dhtf")
 animation = &"front_attack"
 frame_progress = 0.186801
 
-[node name="Hitbox" type="Area2D" parent="."]
+[node name="hitbox" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-shape = SubResource("CapsuleShape2D_xrin3")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+shape = SubResource("CircleShape2D_ueatn")
 
 [node name="attacking_cooldown" type="Timer" parent="."]
 wait_time = 0.5
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
-[connection signal="body_exited" from="Hitbox" to="." method="_on_hitbox_body_exited"]
+[node name="attack-cooldown" type="Timer" parent="."]
+
+[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="body_exited" from="hitbox" to="." method="_on_hitbox_body_exited"]
 [connection signal="timeout" from="attacking_cooldown" to="." method="_on_attacking_cooldown_timeout"]
+[connection signal="timeout" from="attack-cooldown" to="." method="_on_attackcooldown_timeout"]

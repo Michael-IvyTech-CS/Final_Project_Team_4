@@ -6,6 +6,8 @@ var direction_of_player: Vector2 = Vector2.ZERO
 var player: Node2D  # variable representing the player to follow/target
 var collision: KinematicCollision2D  # variable representing a collision with another object
 var idle_animation: String  # stores the name of the idle animation associated with the current movement direction
+var health = 20
+var player_inattack_zone = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -86,4 +88,24 @@ func _on_detection_area_body_entered(body):
 
 # triggers when the player leaves the detection area
 func _on_detection_area_body_exited(body):
-	player = null  # disable following/targeting of the player
+	player = body  # disable following/targeting of the player
+
+
+func _on_enemy_hitbox_body_entered(body):
+	if body.has_method("player"):
+		player_inattack_zone = true
+
+
+func _on_enemy_hitbox_body_exited(body):
+	if body.has_method("player"):
+		player_inattack_zone = false
+		
+func deal_with_damage():
+	if player_inattack_zone and Global.player_current_attack = true:
+		health = health - 20
+		print("enemy health =", health)
+		if health <= 0:
+			self.queue_free()
+			
+func enemy():
+	pass
